@@ -11,4 +11,16 @@
 #convert it into string again after adding the given number to each of the numeric number
 #return the final conversion as final result
 
+def ceasar_cipher(text, num)
+
+  letter_to_number = ("a".."z").zip(1..26).to_h
+  to_num = text.downcase.each_char.map {|c| letter_to_number[c]}.compact
+  add_num_to_num = to_num.map {|res| res + num}
+  result = add_num_to_num.map {|c| letter_to_number.key(c)}.join(" ")
+  p result
+end
+
+string = gets.chomp
+digit = gets.chomp.to_i
+ceasar_cipher(string, digit)
 
